@@ -15,4 +15,4 @@ FROM openjdk:8-jre-alpine
 
 COPY --from=build /code/target/nasa-pic-0.0.1-SNAPSHOT.war /
 
-#CMD ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-jar", "/nasa-pic-0.0.1-SNAPSHOT.war"]
+CMD ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-jar", "/nasa-pic-0.0.1-SNAPSHOT.war"]
