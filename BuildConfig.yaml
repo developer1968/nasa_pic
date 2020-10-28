@@ -1,0 +1,40 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: '2020-10-28T08:36:26Z'
+  labels:
+    app: nasa-pic
+  name: nasa-pic
+  namespace: nasa-pic
+  resourceVersion: '69941'
+  selfLink: /apis/build.openshift.io/v1/namespaces/nasa-pic/buildconfigs/nasa-pic
+  uid: ab478203-18f8-11eb-bba5-080027abd0b5
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'nasa-pic:latest'
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: main
+      uri: 'https://github.com/developer1968/nasa_pic.git'
+    type: Git
+  strategy:
+    dockerStrategy: {}
+    type: Docker
+  triggers:
+    - type: ConfigChange
+    - generic:
+        secret: 0eed326332ff52af
+      type: Generic
+    - github:
+        secret: a133b1b845cd1293
+      type: GitHub
+status:
+  lastVersion: 23
