@@ -15,7 +15,9 @@ public class NasaPictureController {
 
     @GetMapping("/")
     public String showTodaysPicture(ModelMap model) {
+    	System.out.println("controller showTodaysPicture");
         model.addAttribute("picture", service.getTodayPicture());
+        System.out.println("controller dopo call al service");
         return "picture";
     }
 }
