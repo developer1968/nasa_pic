@@ -4,14 +4,15 @@ WORKDIR /code
 
 COPY pom.xml /code/pom.xml
 RUN ["mvn", "dependency:resolve"]
-RUN ["mvn", "verify"]
+#RUN ["mvn", "verify"]
 
-# Adding source, compile and package into a fat jar
-COPY ["src/main", "/code/src/main"]
+# Adding source, compile and package into a fat jar (??)
+#COPY ["src/main", "/code/src/main"]
 RUN ["mvn", "package"]
+
 
 FROM openjdk:8-jre-alpine
 
-COPY --from=build /code/target/nasa_picture.war /
+#COPY --from=build /code/target/nasa_pic.war /
 
-CMD ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-jar", "/nasa_picture.war"]
+CMD ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-jar", "/nasa-pic-0.0.1-SNAPSHOT.war"]
