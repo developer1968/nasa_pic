@@ -7,3 +7,5 @@ Its main objective is to deploy a simple web app with Spring Boot on Openshift (
 The strategy of delpying is the docker strategy.
 A docker file is provided in order to let the deploy
 
+Use the BuildConfig.yaml for the build of the application
+
