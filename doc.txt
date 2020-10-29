@@ -1,0 +1,14 @@
+Questo progetto è basato su un fork di un sistema simile che però funzionava con gradle
+Ho voluto trasformarlo in maven e ho aggiunto il Dockerfile per poterlo deployare su minishift.
+
+Il file BuildConfig.yml è stato ottenuto con questo procedimento:
+ho creato un progetto basato su ApacheHttp (forse andava bene anche un altro). Ho ignorato il building
+e tramite edit yaml, ho modifiato il file sostituendo la strategia di building. In pratica a sourceStrategy
+ho sostituito dockerStrategy.
+  strategy:
+    dockerStrategy: {}
+    type: Docker
+    
+ A questo punto facendo il build, viene deployato un pod con una JVM minimale per poter
+ eseguire un app WEB Spring Boot.
+ 
